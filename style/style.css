@@ -1,8 +1,9 @@
 body {
-    background: rgb(59, 16, 65);
+    background: #3a2e3f;
 }
 
 #wrapper {
-    width: 800px;
+    width: 600px;
     margin: 0 auto;
 }
+
