@@ -15,6 +15,11 @@ shipImg.src = '../images/Ship.png'
 let meteorImg1 = new Image();
 meteorImg1.src = '../images/meteorBrown_big1.png';
 
+canvas.addEventListener('mousemove', function(event){
+    spaceShip.x = event.offsetX-20;
+    spaceShip.y = event.offsetY-20;
+});
+
 // let meteorImg2 = new Image();
 // meteorImg2.src = '../images/meteorBrown_big2.png';
 
@@ -51,7 +56,7 @@ function update() {
             x : Math.random() * 600,
             y : -50,
             dx : Math.random()* 2 - 1,
-            dy : Math.random()* 2 + 2
+            dy : Math.random()* 1 + 1
         });
     }
 
@@ -64,11 +69,12 @@ function update() {
 
     //*Границы
     if (meteor[i].x >= 550 || meteor[i].x < 0) meteor[i].dx = -meteor[i].dx;
-    if (meteor[i].y >= 600 ) meteor.slice(i,1);
+    if (meteor[i].y >= 600 ) meteor.splice(i,1);
 }
 
 function render() {
     context.drawImage(bgImg, 0, 0, 600, 600);
+    context.drawImage(shipImg, spaceShip.x, spaceShip.y, 75, 75);
     for (i in meteor) context.drawImage(meteorImg1, meteor[i].x, meteor[i].y, 50, 50);
 
 }
