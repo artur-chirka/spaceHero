@@ -1,17 +1,6 @@
 let canvas = document.getElementById("game");
 let context = canvas.getContext("2d");
 
-let meteor = [];
-let laser = [];
-let expl = [];
-let timer = 0;
-let spaceShip = {
-    x: 300,
-    y: 300,
-    animx: 0,
-    animy: 0,
-};
-
 let bgImg = new Image();
 bgImg.src = "../images/bgDarkPurple.png";
 
@@ -26,6 +15,19 @@ meteorImg1.src = "../images/meteorBrown_big1.png";
 
 let explImg 	= new Image();
 explImg.src = '../images/boom.png';
+
+let meteor = [];
+let laser = [];
+let expl = [];
+let timer = 0;
+let spaceShip = {
+    x: 300,
+    y: 300,
+    animx: 0,
+    animy: 0,
+};
+
+
 
 canvas.addEventListener("mousemove", function (event) {
     spaceShip.x = event.offsetX - 20;
