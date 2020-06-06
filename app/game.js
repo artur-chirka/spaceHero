@@ -2,19 +2,19 @@ let canvas = document.getElementById("game");
 let context = canvas.getContext("2d");
 
 let bgImg = new Image();
-bgImg.src = "../images/bgDarkPurple.png";
+bgImg.src = "../img/bgDarkPurple.png";
 
 let shipImg = new Image();
-shipImg.src = "../images/Ship.png";
+shipImg.src = "../img/Ship.png";
 
 let laserImg = new Image();
-laserImg.src = "../images/laserGreen11.png";
+laserImg.src = "../img/laserGreen11.png";
 
 let meteorImg1 = new Image();
-meteorImg1.src = "../images/meteorBrown_big1.png";
+meteorImg1.src = "../img/meteorBrown_big1.png";
 
 let explImg 	= new Image();
-explImg.src = '../images/boom.png';
+explImg.src = '../img/boom.png';
 
 let meteor = [];
 let laser = [];
