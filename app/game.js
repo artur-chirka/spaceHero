@@ -13,19 +13,22 @@ let spaceShip = {
 };
 
 let bgImg = new Image();
-bgImg.src = "./img/bgDarkPurple.png";
+bgImg.src = "/img/bgDarkPurple.png";
 
 let shipImg = new Image();
-shipImg.src = "./img/Ship.png";
+shipImg.src = "/img/Ship.png";
 
 let laserImg = new Image();
-laserImg.src = "./img/laserGreen11.png";
+laserImg.src = "/img/laserGreen11.png";
 
 let meteorImg1 = new Image();
-meteorImg1.src = "./img/meteorBrown_big1.png";
+meteorImg1.src = "/img/meteorBrown_big1.png";
 
 let explImg = new Image();
-explImg.src = './img/boom.png';
+explImg.src = '/img/boom.png';
+
+ 
+
 
 canvas.addEventListener("mousemove", function (event) {
     spaceShip.x = event.offsetX - 20;
@@ -67,25 +70,25 @@ function update() {
 
     }
     //выстрел
-    if (timer % 30 == 0) {
+    if (timer % 20 == 0) {
         laser.push({
-            x: spaceShip.x + 10,
+            x: spaceShip.x + 2,
             y: spaceShip.y,
-            dx: 0,
-            dy: -5.2
+            dx: -0.1,
+            dy: -8
         });
         laser.push({
-            x: spaceShip.x + 10,
+            x: spaceShip.x + 65,
             y: spaceShip.y,
-            dx: 0.5,
-            dy: -5
+            dx: -0.1,
+            dy: -8
         });
-        laser.push({
-            x: spaceShip.x + 10,
-            y: spaceShip.y,
-            dx: -0.5,
-            dy: -5
-        });
+        // laser.push({
+        //     x: spaceShip.x + 10,
+        //     y: spaceShip.y,
+        //     dx: -0.5,
+        //     dy: -5
+        // });
     }
 
     //движение астероидов
@@ -96,12 +99,12 @@ function update() {
 
         //граничные условия (коллайдер со стенками)
         if (meteor[i].x <= 0 || meteor[i].x >= 550) meteor[i].dx = -meteor[i].dx;
-        if (meteor[i].y >= 650) meteor.splice(i, 1);
+        if (meteor[i].y >= 600) meteor.splice(i, 1);
 
         //проверим каждый астероид на столкновение с каждой пулей
         for (j in laser) {
 
-            if (Math.abs(meteor[i].x + 25 - laser[j].x - 15) < 50 && Math.abs(meteor[i].y - laser[j].y) < 25) {
+            if (Math.abs(meteor[i].x + 60 - laser[j].x - 30) < 50 && Math.abs(meteor[i].y - laser[j].y) < 60) {
                 //произошло столкновение
 
                 //спавн взрыва
@@ -132,12 +135,12 @@ function update() {
 
     //Анимация взрывов
     for (i in expl) {
-        expl[i].animx = expl[i].animx + 0.5;
-        if (expl[i].animx > 7) {
+        expl[i].animx = expl[i].animx + 0.4;
+        if (expl[i].animx > 1) {
             expl[i].animy++;
             expl[i].animx = 0
         }
-        if (expl[i].animy > 7)
+        if (expl[i].animy > 6)
             expl.splice(i, 1);
     }
 
@@ -164,5 +167,5 @@ function render() {
         context.drawImage(meteorImg1, meteor[i].x, meteor[i].y, 50, 50);
 
     for (i in expl)
-        context.drawImage(explImg, 500 * Math.floor(expl[i].animx), 60 * Math.floor(expl[i].animy), 150, 150, expl[i].x, expl[i].y, 40, 40);
+        context.drawImage(explImg, 300 * Math.floor(expl[i].animx), 150 * Math.floor(expl[i].animy), 300, 300, expl[i].x, expl[i].y, 80, 80);
 }
