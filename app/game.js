@@ -13,19 +13,25 @@ let spaceShip = {
 };
 
 let bgImg = new Image();
-bgImg.src = "/img/bgDarkPurple.png";
+bgImg.src = "img/bgDarkPurple.png";
 
 let shipImg = new Image();
-shipImg.src = "/img/Ship.png";
+shipImg.src = "img/Ship.png";
 
 let laserImg = new Image();
-laserImg.src = "/img/laserGreen11.png";
+laserImg.src = "img/laserGreen11.png";
 
 let meteorImg1 = new Image();
-meteorImg1.src = "/img/meteorBrown_big1.png";
+meteorImg1.src = "img/meteorBrown_big1.png";
 
 let explImg = new Image();
-explImg.src = '/img/boom.png';
+explImg.src = 'img/boom.png';
+
+// function sound(ev) {
+//     let audio = new Audio();
+//     audio.src = '../audio/space.mp3'
+//     audio.autoplay = true
+// }
 
  
 
